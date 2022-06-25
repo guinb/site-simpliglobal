@@ -112,7 +112,7 @@
 -----------------------------------------------------------------*/
 
 .page-title-pattern {
-  background-image: url('images/pattern.png');
+  background-image: url('../../images/pattern.png');
   background-repeat: repeat;
   background-attachment: fixed;
 }
@@ -138,7 +138,7 @@
 
 .page-title-parallax {
   background-color: transparent;
-  background-image: url('images/parallax/parallax-bg.jpg');
+  background-image: url('../../images/parallax/parallax-bg.jpg');
   background-attachment: fixed;
   background-position: 50% 0;
   background-repeat: no-repeat;
