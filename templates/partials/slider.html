@@ -1,0 +1,30 @@
+{% load static %}
+<!-- Slider
+============================================= -->
+<section id="slider" class="slider-element slider-parallax min-vh-60 min-vh-md-100 include-header">
+    <div class="slider-inner" style="background: #FFF url('{% static 'demos/seo/images/hero/hero-pb.jpg' %}') center center no-repeat; background-size: cover;">
+
+        <div class="vertical-middle slider-element-fade">
+            <div class="container py-5">
+                <div class="row pt-5">
+                    <div class="col-lg-5 col-md-8">
+                        <div class="slider-title">
+                            <div class="badge rounded-pill badge-default">Marketing Digital</div>
+                            <h2>Seu negócio de turismo no meio digital</h2>
+                            <h3 class="text-rotater mb-2" data-separator="," data-rotate="fadeIn" data-speed="3500">- <span class="t-rotate">Alcance,Conquiste,Bata</span> suas metas.</h3>
+                            <p>Alavanque o retorno das atividades do Turismo com uma presença digital muito mais forte e estruturada.</p>
+                            <a href="{% url 'sobre' %}" class="button button-rounded button-large nott ls0">Saiba mais</a>
+                            <a href="{% url 'contato' %}" class="button button-rounded button-large button-light text-dark bg-white border nott ls0">Entre em contato</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="video-wrap h-100 d-block d-lg-none">
+            <div class="video-overlay" style="background: rgba(255,255,255,0.85);"></div>
+        </div>
+
+    </div>
+</section><!-- #slider end -->

@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper" class="clearfix">
+
+		<!-- Header
+		============================================= -->
+		<header id="header" class="no-sticky">
+			<div id="header-wrap">
+				<div class="container">
+					<div class="header-row">
+
+						<!-- Logo
+						============================================= -->
+						<div id="logo" class="mx-auto">
+							<a href="{% url 'index' %}" class="standard-logo" data-dark-logo="{% static 'images/logo-dark.png' %}"><img class="mx-auto" src="{% static 'images/logo.png' %}" alt="Canvas Logo"></a>
+							<a href="{% url 'index' %}" class="retina-logo" data-dark-logo="{% static 'images/logo-dark@2x.png' %}"><img class="mx-auto" src="{% static 'images/logo@2x.png' %}" alt="Canvas Logo"></a>
+						</div><!-- #logo end -->
+
+					</div>
+				</div>
+			</div>
+			<div class="header-wrap-clone"></div>
+		</header><!-- #header end -->
+
+		<!-- Content
+		============================================= -->
+		<section id="content">
+			<div class="content-wrap">
+				<div class="container">
+
+					<div class="heading-block text-center border-bottom-0">
+						<h1>Nós estamos em construção</h1>
+						<span>Por favor volte dentro de alguns dias</span>
+					</div>
+
+					<div id="countdown-ex1" class="countdown countdown-large mx-auto bottommargin" data-year="2022" data-month="5" data-day="9" style="max-width:700px;"></div>
+
+					<div class="clear"></div>
+
+					<div class="progress topmargin mx-auto" style="height: 10px; max-width:600px;">
+						<div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+						</div>
+					</div>
+
+					<div class="divider divider-center divider-sm divider-margin-lg"><i class="icon-time"></i></div>
+
+					<div class="subscribe-widget">
+                        <div class="position-relative top-50 start-50 translate-middle position-relative" id="alerta-footer"></div>
+						<form id="form-newsletter" action="" method="post" class="mb-0">
+                            {% csrf_token %}
+							<div class="input-group input-group-lg mx-auto" style="max-width:600px;">
+								<div class="input-group-text"><i class="icon-email2" id="rodinha"></i></div>
+								<input type="email" name="email-newsletter" id="email-newsletter" class="form-control required email" placeholder="Coloque o seu email">
+								<button class="btn btn-secondary" type="submit" onclick="manda_email()">Cadastrar</button>
+							</div>
+						</form>
+					</div>
+
+				</div>
+			</div>
+		</section><!-- #content end -->
+
+	</div><!-- #wrapper end -->
+
+    <script type="text/javascript">
+        const validateEmail = (email) => {
+            return String(email).toLowerCase().match(/\S+@\S+/);
+        };
+        function manda_email() {
+            if (validateEmail(document.getElementById("email-newsletter").value)){
+                $.post(
+                    '/email_newsletter/',{
+                        reply: false,
+                        csrfmiddlewaretoken: $('input[name="csrfmiddlewaretoken"]').val(),
+                        email: $('input[name="email-newsletter"]').val()
+                    },
+                    function (data) {
+                        var rodinha = document.getElementById("rodinha");
+                        rodinha.classList.remove('icon-line-loader');
+                        rodinha.classList.remove('icon-spin');
+                        rodinha.classList.add('icon-email2');
+                        var divMae = document.getElementById('alerta-footer')
+                        var wrapper = document.createElement('div')
+                        if (data == 'Cadastrado com sucesso!'){
+                            document.getElementById("form-newsletter").reset();
+                            wrapper.innerHTML = '<div class="alert alert-success alert-dismissible" role="alert">Avisaremos assim que nosso site for lançado<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+                            divMae.append(wrapper)
+                        } else {
+                            wrapper.innerHTML = '<div class="alert alert-danger alert-dismissible" role="alert">Erro ao cadastrar email<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+                            divMae.append(wrapper)
+                        }
+                    }
+                );
+            } else {
+                document.getElementById("email-newsletter").focus();
+                return false
+            }
+        }
+    </script>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper" class="clearfix">
+
+        {% include 'partials/menu.html' %}
+
+		<!-- Content
+		============================================= -->
+		<section id="content">
+			<div class="content-wrap">
+				<div class="container clearfix">
+
+					<div class="row align-items-center col-mb-80">
+
+						<div class="col-lg-6">
+							<div class="error404 center">403</div>
+						</div>
+
+						<div class="col-lg-6">
+
+							<div class="heading-block text-center text-lg-start border-bottom-0">
+								<h4>Opa! Acesso negado.</h4>
+								<span>Parece que você não tem permissão para acessar essa página.</span>
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</section><!-- #content end -->
+
+        {% include 'partials/footer.html' %}
+		
+	</div><!-- #wrapper end -->
+{% endblock %}

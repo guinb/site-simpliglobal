@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper" class="clearfix">
+
+        {% include 'partials/menu.html' %}
+		<!-- Page Title
+		============================================= -->
+
+		<section id="page-title" class="page-title-parallax page-title-center page-title-dark include-header" style="background-image: linear-gradient(to top, rgba(254,150,3,0.5), #39384D), url('{% static 'demos/seo/images/services/content_marketing-title.jpg' %}'); background-size: cover; padding: 120px 0;" data-bottom-top="background-position:0px 300px;" data-top-bottom="background-position:0px -300px;">
+			<div id="particles-line"></div>
+
+			<div class="container clearfix mt-4">
+				<div class="badge rounded-pill border border-light text-light">Entre em Contato</div>
+				<h1>Contato</h1>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="#">Home</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Contato</li>
+				</ol>
+			</div>
+
+		</section><!-- #page-title end -->
+
+		<!-- Content
+		============================================= -->
+		<section id="content">
+
+			<div class="content-wrap pb-0">
+
+				<div class="container mb-3">
+					<div class="row justify-content-between">
+						<div class="col-lg-3 col-md-6">
+							<div class="feature-box flex-column text-center">
+								<div class="fbox-image text-center mb-3">
+									<img height="120" src="{% static 'demos/seo/images/icons/seo.svg' %}" alt="Feature Icon">
+								</div>
+								<div class="fbox-content">
+									<h3 class="nott ls0 mb-4">Localização:</h3>
+									<p class="text-smaller mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+									<address>
+										<a href="https://maps.google.com">
+										<u>795 Folsom Ave, Suite 600<br>
+										San Francisco, CA 94107</u>
+										</a>
+									</address>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-3 col-md-6">
+							<div class="feature-box flex-column text-center">
+								<div class="fbox-image text-center mb-3">
+									<img height="120" src="{% static 'demos/seo/images/icons/social.svg' %}" alt="Feature Icon">
+								</div>
+								<div class="fbox-content">
+									<h3 class="nott ls0 mb-4">Contato:</h3>
+									<p class="text-smaller mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+									<a class="btn btn-link" href="mailto:info@canvas.com"><u>noreply@canvas.com</u></a>
+									<a class="btn btn-link" href="tel:10-22-33445566"><u>(10) 22 33445566</u></a>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-3 col-md-6">
+							<div class="feature-box flex-column text-center">
+								<div class="fbox-image text-center mb-3">
+									<img height="120" src="{% static 'demos/seo/images/icons/group.svg' %}" alt="Feature Icon">
+								</div>
+								<div class="fbox-content">
+									<h3 class="nott ls0 mb-4">Chat ao vivo:</h3>
+									<p class="text-smaller mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+									<a href="#"><u>Click Here</u></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="clear"></div>
+
+				<!-- Google Map
+				============================================= -->
+				<section class="gmap vh-60 topmargin-lg" data-address="Melbourne, Australia" data-markers='[{address: "Melbourne, Australia", html: $("#map-marker-1").html(), icon:{ image: "{% static "images/icons/map-icon-red.png" %}", iconsize: [32, 39], iconanchor: [32,39] } }]'></section>
+				<div id="map-marker-1" class="d-none"><div style="width: 300px;"><h4 class="mb-2">Hi! We are <span>Envato!</span></h4><p class="mb-0" style="font-size:1rem;">Our mission is to help people to <strong>earn</strong> and to <strong>learn</strong> online. We operate <strong>marketplaces</strong> where hundreds of thousands of people buy and sell digital goods every day.</p></div></div>
+
+                {% include 'partials/mini-contato.html' %}
+
+			</div>
+		</section><!-- #content end -->
+
+        {% include 'partials/footer.html' %}
+
+	</div><!-- #wrapper end -->
+
+{% endblock %}

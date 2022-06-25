@@ -1,0 +1,264 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper" class="clearfix">
+
+        {% include 'partials/menu.html' %}
+		<!-- Page Title
+		=============================================
+
+		<section id="page-title" class="page-title-parallax page-title-center page-title-dark include-header" style="background-image: linear-gradient(to top, rgba(73,80,87,0.5), #39384D), url('{% static 'demos/seo/images/services/contato-top.jpg' %}'); background-size: cover; padding: 120px 0;" data-bottom-top="background-position:0px 300px;" data-top-bottom="background-position:0px -300px;">
+			<div id="particles-line"></div>
+
+			<div class="container clearfix mt-4">
+				<div class="badge rounded-pill border border-light text-light">Entre em Contato</div>
+				<h1>Contato</h1>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="#">Home</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Contato</li>
+				</ol>
+			</div>
+
+		</section> #page-title end -->
+
+		<!-- Content
+		============================================= -->
+		<section id="content">
+
+			<div class="content-wrap pb-0">
+				<div class="container mb-5">
+					<div class="w-100">
+						<div class="row col-mb-50">
+							<div class="col-sm-6 col-lg-3">
+								<div class="feature-box fbox-center fbox-bg fbox-plain">
+									<div class="fbox-icon">
+										<a href="mailto:annabela@simpliglobal.com.br"><i class="icon-email2"></i></a>
+									</div>
+									<div class="fbox-content">
+										<h3>Envie um email<span class="subtitle"><a href="mailto:annabela@simpliglobal.com.br">annabela@simpliglobal.com.br</a></span></h3>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-sm-6 col-lg-3">
+								<div class="feature-box fbox-center fbox-bg fbox-plain">
+									<div class="fbox-icon">
+										<a href="tel:+393516587627"><i class="icon-phone3"></i></a>
+									</div>
+									<div class="fbox-content">
+										<h3>Fale conosco<span class="subtitle"><a href="tel:+393516587627">+39 35 1658 7627</a></span></h3>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-sm-6 col-lg-3">
+								<div class="feature-box fbox-center fbox-bg fbox-plain">
+									<div class="fbox-icon">
+										<a href="https://api.whatsapp.com/send?phone=393516587627" target="_blank"><i class="icon-whatsapp"></i></a>
+									</div>
+									<div class="fbox-content">
+										<h3>Envie uma mensagem<span class="subtitle"><a href="https://api.whatsapp.com/send?phone=393516587627" target="_blank">WhatsApp</a></span></h3>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-sm-6 col-lg-3">
+								<div class="feature-box fbox-center fbox-bg fbox-plain">
+									<div class="fbox-icon">
+										<a href="https://www.instagram.com/simpli.global/" target="_blank"><i class="icon-instagram2"></i></a>
+									</div>
+									<div class="fbox-content">
+										<h3>Siga no Instagram<span class="subtitle"><a href="https://www.instagram.com/simpli.global/" target="_blank">@Simpli.Global</a></span></h3>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div><!-- Contact Info End -->
+				</div>
+
+				<div class="clear"></div>
+
+				<div class="container my-5">
+					<div class="row justify-content-center">
+						<div class="col-md-7">
+							<h2 class="display-4 text-dark fw-semibold ls--2 mb-3">Deixe sua mensagem</h2>
+							<p class="text-dark">Entraremos em contato em breve!</p>
+
+							<div class="form-widget topmargin">
+
+								<div class="form-result"></div>
+
+								<form class="mb-0" id="template-contactform" name="template-contactform" action="" method="post">
+									{% csrf_token %}
+									<!-- <div class="form-process">
+										<div class="css3-spinner">
+											<div class="css3-spinner-scaler"></div>
+										</div>
+									</div> -->
+
+									<div class="position-absolute top-0 start-50 translate-middle" id="alerta">
+									</div>
+
+									<div class="row">
+										<div class="col-md-4 form-group">
+											<label for="form_nome">Nome<small class="text-danger">*</small></label>
+											<input type="text" id="form_nome" name="form_nome" value="" class="form-control required" />
+										</div>
+
+										<div class="col-md-4 form-group">
+											<label for="form_email">Email<small class="text-danger">*</small></label>
+											<input type="email" id="form_email" name="form_email" value="" class="required email form-control" />
+										</div>
+
+										<div class="col-md-4 form-group">
+											<label for="form_fone">Telefone<small class="text-danger">*</small></label>
+											<input type="text" id="form_fone" name="form_fone" value="" class="required form-control" onkeypress="mask(this, mphone);" onfocus="mask(this, mphone);" minlength="14" />
+										</div>
+
+										<div class="w-100"></div>
+
+										<div class="col-md-4 form-group">
+											<label for="form_empresa">Empresa</label>
+											<input type="text" id="form_empresa" name="form_empresa" value="" class="form-control" />
+										</div>
+
+										<div class="col-md-4 form-group">
+											<label for="form_interesse">Interesse em<small class="text-danger">*</small></label>
+											<select id="form_interesse" name="form_interesse" class="required form-control">
+												<option value="" disabled="disabled" selected>-- Selecione --</option>
+												<option value="Gestão de Tráfego">Gestão de Tráfego</option>
+												<option value="SEO">SEO</option>
+												<option value="Criação de Websites">Criação de Websites</option>
+												<option value="Google Meu Negócio">Google Meu Negócio</option>
+												<option value="Identidade Visual">Identidade Visual & Logomarca</option>
+											</select>
+										</div>
+
+										<div class="col-md-4 form-group">
+											<label for="form_forma">Preferência para contato<small class="text-danger">*</small></label>
+											<select id="form_forma" name="form_forma" class="required form-control">
+												<option value="" disabled="disabled" selected>-- Selecione --</option>
+												<option value="Email">Mensagem por email</option>
+												<option value="Telefone">Ligação por telefone</option>
+												<option value="Whatsapp">Mensagem por WhatsApp</option>
+											</select>
+										</div>
+
+										<div class="w-100"></div>
+
+										<div class="col-12 form-group">
+											<label for="form_mensagem">Mensagem<small class="text-danger">*</small></label>
+											<textarea class="required form-control" id="form_mensagem" name="form_mensagem" rows="6" cols="30"></textarea>
+										</div>
+
+										<div class="col-12 form-group d-none">
+											<input type="text" id="template-contactform-botcheck" name="template-contactform-botcheck" value="" class="form-control" />
+										</div>
+
+										<div class="col-12 form-group">
+											<button class="button button-rounded button-xlarge m-0 center fw-medium nott ls0 fw-normal" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit" onclick="manda_msg()">Enviar Mensagem</button>
+										</div>
+									</div>
+
+									<input type="hidden" name="prefix" value="template-contactform-">
+
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+		</section><!-- #content end -->
+
+        {% include 'partials/footer.html' %}
+
+	</div><!-- #wrapper end -->
+	<script type="text/javascript">
+		function mask(o, f) {
+			setTimeout(function () {
+				var v = mphone(o.value);
+				if (v != o.value) {
+					o.value = v;
+				}
+			}, 1);
+		}
+		
+		function mphone(v) {
+			var r = v.replace(/\D/g,"");
+			r = r.replace(/^0/,"");
+			if (r.length > 10) {
+				r = r.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
+			}
+			else if (r.length > 5) {
+				r = r.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
+			}
+			else if (r.length > 2) {
+				r = r.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
+			}
+			else {
+				r = r.replace(/^(\d*)/, "($1");
+			}
+			return r;
+		}
+		
+		
+		function manda_msg() {
+			function validateEmail(email) {
+				var re = /\S+@\S+/;
+				return re.test(email);
+			}
+			var nome = document.getElementById("form_nome").value;
+			var email = document.getElementById("form_email").value;
+			var telefone = document.getElementById("form_fone").value;
+			var empresa = document.getElementById("form_empresa").value;
+			var interesse = document.getElementById("form_interesse").value;
+			var forma = document.getElementById("form_forma").value;
+			var mensagem = document.getElementById("form_mensagem").value;
+			if (nome == '') {
+				document.getElementById("form_nome").focus();
+			} else if (!validateEmail(email)) {
+				document.getElementById("form_email").focus();
+			} else if (telefone.length < 14) {
+				document.getElementById("form_fone").focus();
+			} else if (interesse == '') {
+				document.getElementById("form_interesse").focus();
+			} else if (forma == '') {
+				document.getElementById("form_forma").focus();
+			} else if (mensagem == '') {
+				document.getElementById("form_mensagem").focus();
+			} else {
+				$.post(
+					'/mensagem_contato/',{
+						reply: false,
+						csrfmiddlewaretoken: $('input[name="csrfmiddlewaretoken"]').val(),
+						nome: $('input[name="form_nome"]').val(),
+						email: $('input[name="form_email"]').val(),
+						empresa: $('input[name="form_empresa"]').val(),
+						telefone: $('input[name="form_fone"]').val(),
+						interesse: interesse,
+						forma: forma,
+						mensagem: mensagem
+					},
+					function (data) {
+						var divMae = document.getElementById('alerta')
+						var wrapper = document.createElement('div')
+						if (data == 'Mensagem enviada com sucesso!'){
+							document.getElementById("template-contactform").reset();
+							wrapper.innerHTML = '<div class="alert alert-success alert-dismissible" role="alert"><i class="icon-thumbs-up"></i> ' + data + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+							divMae.append(wrapper)
+						} else {
+							wrapper.innerHTML = '<div class="alert alert-danger alert-dismissible" role="alert"><i class="icon-remove"></i> ' + data + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+							divMae.append(wrapper)
+						}
+					}
+				);
+			}
+		}
+	</script>
+
+{% endblock %}

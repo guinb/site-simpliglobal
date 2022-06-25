@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html dir="ltr" lang="pt-br">
+<head>
+
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<meta name="author" content="Guilherme Nogueira Batistette" />
+	<meta name="description" content="{{descricao}}">
+	<link rel="canonical" href="{{endereco}}">
+	<meta name="robots" content="{{robots}}">
+	
+	<meta property="og:title" content="{{titulo}}" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="{{endereco}}" />
+	<meta property="og:description" content="{{descricao}}" />
+	<meta property="og:site_name" content="Simpli Global" />
+
+
+
+	<!-- Stylesheets
+	============================================= -->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,900&display=swap" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'style.css' %}" type="text/css" />
+
+	<link rel="stylesheet" href="{% static 'css/dark.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/font-icons.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/animate.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css" />
+
+	<!-- Bootstrap Switch CSS -->
+	<link rel="stylesheet" href="{% static 'css/components/bs-switches.css' %}" type="text/css" />
+
+	<link rel="stylesheet" href="{% static 'css/custom.css' %}" type="text/css" />
+
+	<meta name='viewport' content='initial-scale=1, viewport-fit=cover'>
+
+	<!-- Seo Demo Specific Stylesheet -->
+	<link rel="stylesheet" href="{% static 'css/colors2.css' %}" type="text/css" /> <!-- Theme Color -->
+	<link rel="stylesheet" href="{% static 'demos/seo/css/fonts.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'demos/seo/seo.css' %}" type="text/css" />
+	<!-- / -->
+
+	<!-- Document Title
+	============================================= -->
+	<title>{{titulo}} | Simpli Global</title>
+	<link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+    <link rel="shortcut icon" type="image/png" sizes="512x512" href="{% static 'images/android-chrome-512x512.png' %}"/>
+    <link rel="shortcut icon" type="image/png" sizes="192x192" href="{% static 'images/android-chrome-192x192.png' %}"/>
+    <link rel="shortcut icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-32x32.png' %}"/>
+    <link rel="shortcut icon" type="image/png" sizes="16x16" href="{% static 'images/favicon-16x16.png' %}"/>
+	<link rel="apple-touch-icon" href="{% static 'images/apple-touch-icon.png' %}">
+
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-TT5GSRT');</script>
+	<!-- End Google Tag Manager -->
+
+</head>
+
+<body class="stretched">
+	<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TT5GSRT"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+
+	{% include 'partials/gdpr.html' %}
+	
+    {% block content %} 
+    {% endblock %}
+
+    {% include 'partials/javascripts.html' %}
+    
+</body>
+</html>

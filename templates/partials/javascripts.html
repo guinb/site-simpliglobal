@@ -1,0 +1,93 @@
+{% load static %}
+	<!-- Go To Top
+	============================================= -->
+	<div id="gotoTop" class="icon-angle-up"></div>
+
+	<!-- JavaScripts
+	============================================= -->
+	<script src="{% static 'js/jquery.js' %}"></script>
+	<script src="{% static 'js/plugins.min.js' %}"></script>
+
+	<!-- Footer Scripts
+	============================================= -->
+	<script src="{% static 'js/functions.js' %}"></script>
+
+    {% if request.resolver_match.url_name == 'sobre' %}
+        <!-- Charts JS
+        ============================================= -->
+        <script src="{% static 'js/chart.js' %}"></script>
+        <script src="{% static 'js/chart-utils.js' %}"></script>
+        <script src="{% static 'js/components/moment.js' %}"></script>
+    {% endif %}
+
+    {% if request.resolver_match.url_name == 'faqs' %}
+        <!-- Main Particles Js
+        ============================================= -->
+        <script src="{% static 'js/particles/particles.min.js' %}"></script>
+        <script src="{% static 'js/particles/particles-line.js' %}"></script><!-- Particles Line -->
+
+        <script>
+            jQuery(document).ready(function($){
+                var $faqItems = $('#faqs .faq');
+                if( window.location.hash != '' ) {
+                    var getFaqFilterHash = window.location.hash;
+                    var hashFaqFilter = getFaqFilterHash.split('#');
+                    if( $faqItems.hasClass( hashFaqFilter[1] ) ) {
+                        $('.grid-filter li').removeClass('activeFilter');
+                        $( '[data-filter=".'+ hashFaqFilter[1] +'"]' ).parent('li').addClass('activeFilter');
+                        var hashFaqSelector = '.' + hashFaqFilter[1];
+                        $faqItems.css('display', 'none');
+                        if( hashFaqSelector != 'all' ) {
+                            $( hashFaqSelector ).fadeIn(500);
+                        } else {
+                            $faqItems.fadeIn(500);
+                        }
+                    }
+                }
+
+                $('.grid-filter a').on( 'click', function(){
+                    $('.grid-filter li').removeClass('activeFilter');
+                    $(this).parent('li').addClass('activeFilter');
+                    var faqSelector = $(this).attr('data-filter');
+                    $faqItems.css('display', 'none');
+                    if( faqSelector != 'all' ) {
+                        $( faqSelector ).fadeIn(500);
+                    } else {
+                        $faqItems.fadeIn(500);
+                    }
+                    return false;
+            });
+            });
+        </script>
+    {% endif %}
+
+    {% if request.resolver_match.url_name == 'contato' %}
+        <!-- Main Particles Js
+        ============================================= -->
+        <script src="{% static 'js/particles/particles.min.js' %}"></script>
+        <script src="{% static 'js/particles/particles-line.js' %}"></script><!-- Particles Line -->
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6pSUWgaR9xxs8PmXy0SEbxFucVy3hZk" defer></script>
+    {% endif %}
+
+    {% if request.resolver_match.url_name == 'search' %}
+        <script>
+            (function() {
+                var cx = '006140480002229796823:3f-_bji0d1w';
+                var gcse = document.createElement('script');
+                gcse.type = 'text/javascript';
+                gcse.async = true;
+                gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+                    '//www.google.com/cse/cse.js?cx=' + cx;
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(gcse, s);
+            })();
+        </script>
+    {% endif %}
+
+    {% if request.resolver_match.url_name == 'gestao_trafego' or 'analise_empresa' or 'criativos' or 'desenvolvimento_web' %}
+        <!-- Main Particles Js
+        ============================================= -->
+        <script src="{% static 'js/particles/particles.min.js' %}"></script>
+        <script src="{% static 'js/particles/particles-line.js' %}"></script><!-- Particles Line -->
+    {% endif %}

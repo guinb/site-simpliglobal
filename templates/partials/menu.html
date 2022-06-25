@@ -1,0 +1,212 @@
+{% load static %}
+		<!-- Top Bar
+		============================================= -->
+		<div id="top-bar" class="transparent-topbar {% if request.resolver_match.url_name != 'index' %}dark{% endif %}">
+			<div class="container clearfix">
+
+				<div class="row justify-content-between">
+					<div class="col-12 col-md-auto">
+
+						<!-- Top Links
+						============================================= -->
+						<div class="top-links">
+							<ul class="top-links-container">
+								<!-- <li class="top-links-item"><a href="{% url 'index' %}">Home</a></li>
+								<li class="top-links-item"><a href="{% url 'sobre' %}">Quem somos</a></li>
+								<li class="top-links-item"><a href="{% url 'contato' %}">Contato</a></li> -->
+								<li class="top-links-item"><a href="#"><img src="{% static 'demos/seo/images/flags/br.png' %}" alt="Lang">Port</a>
+									<ul class="top-links-sub-menu">
+										<li class="top-links-item"><a href="#"><img src="{% static 'demos/seo/images/flags/eng2.png' %}" alt="Lang">English</a></li>
+										<li class="top-links-item"><a href="#"><img src="{% static 'demos/seo/images/flags/esp.png' %}" alt="Lang">Español</a></li>
+									</ul>
+								</li>
+							</ul>
+						</div><!-- .top-links end -->
+
+					</div>
+
+					<div class="col-auto order-lg-1 d-none d-md-flex px-0">
+						<div class="social-icons">
+							<a href="https://www.facebook.com/Simpli-Global-105298165539689" class="social-icon si-rounded si-dark si-mini si-facebook" target="_blank">
+								<i class="icon-facebook"></i>
+								<i class="icon-facebook"></i>
+							</a>
+							<a href="https://www.linkedin.com/company/simpliglobal" class="social-icon si-rounded si-dark si-mini si-linkedin" target="_blank">
+								<i class="icon-linkedin"></i>
+								<i class="icon-linkedin"></i>
+							</a>
+							<a href="https://www.instagram.com/simpli.global/" class="social-icon si-rounded si-dark si-mini si-instagram" target="_blank">
+								<i class="icon-instagram"></i>
+								<i class="icon-instagram"></i>
+							</a>
+						</div>
+					</div>
+
+					<div class="col-12 col-md-auto dark">
+						<!-- Top Social
+						============================================= 
+						<ul id="top-social">
+							<li><a href="#" class="si-facebook" target="_blank"><span class="ts-icon"><i class="icon-facebook"></i></span><span class="ts-text">Facebook</span></a></li>
+							<li><a href="https://www.linkedin.com/company/simpliglobal" class="si-linkedin" target="_blank"><span class="ts-icon"><i class="icon-linkedin"></i></span><span class="ts-text">LinkedIn</span></a></li>
+							<li><a href="#" class="si-instagram" target="_blank"><span class="ts-icon"><i class="icon-instagram2"></i></span><span class="ts-text">Instagram</span></a></li>
+							<li><a href="tel:#" class="si-call"><span class="ts-icon"><i class="icon-call"></i></span><span class="ts-text">+10.11.85412542</span></a></li>
+							<li><a href="mailto:#" class="si-email3"><span class="ts-icon"><i class="icon-envelope-alt"></i></span><span class="ts-text">info@canvas.com</span></a></li>
+						</ul> #top-social end -->
+
+					</div>
+				</div>
+
+			</div>
+		</div><!-- #top-bar end -->
+
+		<!-- Header
+		============================================= -->
+		<header id="header" class="transparent-header floating-header header-size-md">
+			<div id="header-wrap">
+				<div class="container">
+					<div class="header-row">
+
+						<!-- Logo
+						============================================= -->
+						<div id="logo">
+							<a href="{% url 'index' %}" class="standard-logo" data-dark-logo="{% static 'images/logo-dark.png' %}"><img src="{% static 'images/logo.png' %}" alt="Canvas Logo"></a>
+							<a href="{% url 'index' %}" class="retina-logo" data-dark-logo="{% static 'images/logo-dark@2x.png' %}"><img src="{% static 'images/logo@2x.png' %}" alt="Canvas Logo"></a>
+						</div><!-- #logo end -->
+
+						<div class="header-misc">
+
+							<!-- Top Search
+							============================================= 
+							<div id="top-search" class="header-misc-icon">
+								<a href="#" id="top-search-trigger"><i class="icon-line-search"></i><i class="icon-line-cross"></i></a>
+							</div> #top-search end -->
+
+							<a href="{% url 'sobre' %}" class="button button-rounded ms-3 d-none d-sm-block">Sobre nós</a>
+
+						</div>
+
+						<div id="primary-menu-trigger">
+							<svg class="svg-trigger" viewBox="0 0 100 100"><path d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20"></path><path d="m 30,50 h 40"></path><path d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20"></path></svg>
+						</div>
+
+						<!-- Primary Navigation
+						============================================= -->
+						<nav class="primary-menu with-arrows">
+
+							<ul class="menu-container">
+								<li class="menu-item {% if request.resolver_match.url_name == 'index' %}current{% endif %}"><a class="menu-link" href="{% url 'index' %}"><div>Home</div></a></li>
+								<li class="menu-item {% if request.resolver_match.url_name == 'sobre' %}current{% endif %}"><a class="menu-link" href="{% url 'sobre' %}"><div>Quem Somos</div></a></li>
+								<li class="menu-item mega-menu {% if request.resolver_match.url_name == 'gestao_trafego' or request.resolver_match.url_name == 'analise_empresa' or request.resolver_match.url_name == 'criativos' or request.resolver_match.url_name == 'identidade_visual' or request.resolver_match.url_name == 'desenvolvimento_web' or request.resolver_match.url_name == 'posts' %}current{% endif %}"><div class="menu-link"><div>Soluções</div></div>
+									<div class="mega-menu-content mega-menu-style-2 px-0">
+										<div class="container">
+											<div class="row">
+												<!-- <a href="{% url 'analise_empresa' %}" class="mega-menu-column sub-menu-container col-lg-4 border-bottom h-bg-light py-4">
+													<div class="feature-box">
+														<div class="fbox-icon mb-2">
+															<img src="{% static 'demos/seo/images/icons/analise-estrategica.svg' %}" alt="Feature Icon" class="bg-transparent rounded-0">
+														</div>
+														<div class="fbox-content">
+															<h3 class="nott ls0">Análise estratégica do cenário da empresa</h3>
+															<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, ipsa!</p>
+														</div>
+													</div>
+												</a> -->
+												<a href="{% url 'gestao_trafego' %}" class="mega-menu-column sub-menu-container col-lg-4 border-bottom h-bg-light py-4">
+													<div class="feature-box">
+														<div class="fbox-icon mb-2">
+															<img src="{% static 'demos/seo/images/icons/gestao-trafego.svg' %}" alt="Feature Icon" class="bg-transparent rounded-0">
+														</div>
+														<div class="fbox-content">
+															<h3 class="nott ls0">Gestão de Tráfego</h3>
+															<p>Aumento do fluxo de pessoas para o seu negócio</p>
+														</div>
+													</div>
+												</a>
+												<a href="{% url 'otimizacao_seo' %}" class="mega-menu-column sub-menu-container col-lg-4 border-bottom h-bg-light py-4">
+													<div class="feature-box">
+														<div class="fbox-icon mb-2">
+															<img src="{% static 'demos/seo/images/icons/analise-estrategica.svg' %}" alt="Feature Icon" class="bg-transparent rounded-0">
+														</div>
+														<div class="fbox-content">
+															<h3 class="nott ls0">SEO</h3>
+															<p>Maior relevância e rankeamento do seu site no Google</p>
+														</div>
+													</div>
+												</a>
+												<a href="{% url 'desenvolvimento_web' %}" class="mega-menu-column sub-menu-container col-lg-4 border-bottom h-bg-light py-4">
+													<div class="feature-box">
+														<div class="fbox-icon mb-2">
+															<img src="{% static 'demos/seo/images/icons/desenvolvimento-web.svg' %}" alt="Feature Icon" class="bg-transparent rounded-0">
+														</div>
+														<div class="fbox-content">
+															<h3 class="nott ls0">Criação de Website</h3>
+															<p>Sites modernos e responsivos para seu negócio</p>
+														</div>
+													</div>
+												</a>
+												<a href="{% url 'google_meunegocio' %}" class="mega-menu-column sub-menu-container col-lg-6 border-bottom h-bg-light py-4">
+													<div class="feature-box">
+														<div class="fbox-icon mb-2">
+															<img src="{% static 'demos/seo/images/icons/criativos.svg' %}" alt="Feature Icon" class="bg-transparent rounded-0">
+														</div>
+														<div class="fbox-content">
+															<h3 class="nott ls0">Google Meu Negócio</h3>
+															<p>Configuração do Google Meu Negócio para que sua empresa se destaque em meio aos concorrentes															</p>
+														</div>
+													</div>
+												</a>
+												<a href="{% url 'identidade_visual' %}" class="mega-menu-column sub-menu-container col-lg-6 border-bottom h-bg-light py-4">
+													<div class="feature-box">
+														<div class="fbox-icon mb-2">
+															<img src="{% static 'demos/seo/images/icons/identidade-visual.svg' %}" alt="Feature Icon" class="bg-transparent rounded-0">
+														</div>
+														<div class="fbox-content">
+															<h3 class="nott ls0">Identidade Visual & Logomarca</h3>
+															<p>Criação de identidade visual pensada na essência do seu negócio</p>
+														</div>
+													</div>
+												</a>
+												<!-- <a href="{% url 'criativos' %}" class="mega-menu-column sub-menu-container col-lg-4 border-bottom h-bg-light py-4">
+													<div class="feature-box">
+														<div class="fbox-icon mb-2">
+															<img src="{% static 'demos/seo/images/icons/criativos.svg' %}" alt="Feature Icon" class="bg-transparent rounded-0">
+														</div>
+														<div class="fbox-content">
+															<h3 class="nott ls0">Criativos</h3>
+															<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, ipsa!</p>
+														</div>
+													</div>
+												</a>
+												<a href="{% url 'posts' %}" class="mega-menu-column sub-menu-container col-lg-4 border-bottom h-bg-light py-4">
+													<div class="feature-box">
+														<div class="fbox-icon mb-2">
+															<img src="{% static 'demos/seo/images/icons/posts.svg' %}" alt="Feature Icon" class="bg-transparent rounded-0">
+														</div>
+														<div class="fbox-content">
+															<h3 class="nott ls0">Posts</h3>
+															<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi, ipsa!</p>
+														</div>
+													</div>
+												</a>
+												<div class="mega-menu-column sub-menu-container col-12 p-0">
+													<a href="{% url 'sobre' %}" class="button button-rounded button-large nott ls0 w-100 text-center m-0 rounded-0 py-3 button-light ">Saiba Mais <i class="icon-line-arrow-right"></i></a>
+												</div> -->
+											</div>
+										</div>
+									</div>
+								</li>
+								<!--<li class="menu-item {% if request.resolver_match.url_name == 'faqs'%}current{% endif %}"><a class="menu-link" href="{% url 'faqs' %}"><div>FAQs</div></a></li>-->
+								<li class="menu-item {% if request.resolver_match.url_name == 'contato'%}current{% endif %}"><a class="menu-link" href="{% url 'contato' %}"><div>Contato</div></a></li>
+							</ul>
+
+						</nav><!-- #primary-menu end -->
+
+						<form class="top-search-form" action="search.html" method="get">
+							<input type="text" name="q" class="form-control" value="" placeholder="Digite &amp; confirme.." autocomplete="off">
+						</form>
+
+					</div>
+				</div>
+			</div>
+			<div class="header-wrap-clone"></div>
+		</header><!-- #header end -->

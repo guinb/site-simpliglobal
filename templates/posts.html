@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+	<!-- Document Wrapper
+	============================================= -->
+	<div id="wrapper" class="clearfix">
+
+        {% include 'partials/menu.html' %}
+
+		<!-- Page Title
+		============================================= -->
+
+		<section id="page-title" class="page-title-parallax page-title-center page-title-dark include-header" style="background-image: linear-gradient(to top, rgba(73,80,87,0.5), #39384D), url('{% static 'demos/seo/images/services/content_marketing-title.jpg' %}'); background-size: cover; padding: 120px 0;" data-bottom-top="background-position:0px 300px;" data-top-bottom="background-position:0px -300px;">
+			<div id="particles-line"></div>
+
+			<div class="container clearfix mt-4">
+				<div class="badge rounded-pill border border-light text-light">Serviços</div>
+				<h1>Posts</h1>
+				<ol class="breadcrumb">
+					<li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+					<li class="breadcrumb-item"><a href="#">Serviços</a></li>
+					<li class="breadcrumb-item active" aria-current="page">Posts</li>
+				</ol>
+			</div>
+
+		</section><!-- #page-title end -->
+
+		<!-- Content
+		============================================= -->
+		<section id="content">
+
+			<div class="content-wrap pb-0">
+
+				<div class="container">
+					<div class="row align-items-center">
+						<div class="col-lg-6">
+							<div class="badge rounded-pill badge-default">Posts</div>
+							<h2 class="display-4 fw-bold">Criação de conteúdo em mídias sociais.</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia vitae mollitia dignissimos ab qui aspernatur.</p>
+							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt laborum, molestiae eum odit illo pariatur. Sapiente deserunt optio dignissimos maiores pariatur, expedita voluptate quibusdam distinctio beatae.</p>
+							<a href="{% url 'sobre' %}" class="button button-rounded button-large nott ls0">Saiba Mais</a>
+							<a href="{% url 'contato' %}" class="button button-rounded button-large button-light text-dark bg-white border nott ls0">Entre em Contato</a>
+						</div>
+						<div class="col-lg-6 mt-4 mt-lg-0">
+							<img src="{% static 'demos/seo/images/services/social.svg' %}" alt="Image">
+						</div>
+					</div>
+
+					<div class="clear line my-6"></div>
+
+					<div class="heading-block border-bottom-0 center">
+						<div class="badge rounded-pill badge-default">Métodos</div>
+						<h3 class="nott ls0">O Que Fazemos:</h3>
+					</div>
+					<div class="clear"></div>
+					<div class="row mt-4 col-mb-50 mb-0">
+						<div class="col-sm-6 col-lg-4">
+							<div class="feature-box">
+								<div class="fbox-icon mb-4">
+									<a href="#"><i class="icon-dollar si-colored si-gplus border-0"></i></a>
+								</div>
+								<div class="fbox-content">
+									<h3 class="nott">Increase Profits</h3>
+									<p>Powerful Layout with Responsive functionality that can be adapted to any screen size. Resize browser to view.</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-6 col-lg-4">
+							<div class="feature-box">
+								<div class="fbox-icon mb-4">
+									<a href="#"><i class="icon-comments2 bg-dark border-0"></i></a>
+								</div>
+								<div class="fbox-content">
+									<h3 class="nott">Create a Story</h3>
+									<p>Looks beautiful &amp; ultra-sharp on Retina Screen Displays. Retina Icons, Fonts &amp; all others graphics are optimized.</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-6 col-lg-4">
+							<div class="feature-box">
+								<div class="fbox-icon mb-4">
+									<a href="#"><i class="icon-quote-right1 bg-info border-0"></i></a>
+								</div>
+								<div class="fbox-content">
+									<h3 class="nott">Create a Dialogue</h3>
+									<p>Looks beautiful &amp; ultra-sharp on Retina Screen Displays. Retina Icons, Fonts &amp; all others graphics are optimized.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="clear"></div>
+
+				{% include 'partials/servicos-outros.html' %}
+
+                {% include 'partials/mini-contato.html' %}
+
+			</div>
+		</section><!-- #content end -->
+
+        {% include 'partials/footer.html' %}
+
+	</div><!-- #wrapper end -->
+
+{% endblock %}

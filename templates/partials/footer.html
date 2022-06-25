@@ -1,0 +1,143 @@
+{% load static %}
+		<!-- Footer
+		============================================= -->
+		<footer id="footer" class="border-0 bg-white">
+			<div class="container">
+				<!-- Footer Widgets
+				============================================= -->
+				<div class="footer-widgets-wrap pb-5 clearfix">
+
+					<div class="row col-mb-50">
+						<div class="col-md-8">
+
+							<div class="widget clearfix">
+
+								<img src="{% static 'images/footer-widget-logo.png' %}" alt="Footer Logo" class="alignleft" style="margin-top: 8px; padding-right: 18px; border-right: 1px solid #DDD;">
+
+								<p class="pt-4"><strong>Soluções Digitais</strong> para negócios de <strong>Turismo</strong></p>
+
+								<div class="line line-sm"></div>
+
+								<div class="row">
+
+									<div class="col-lg-4 col-8 bottommargin-sm widget_links">
+										<ul>
+											<li><a href="{% url 'gestao_trafego' %}">Gestão de Tráfego</a></li>
+											<li><a href="{% url 'google_meunegocio' %}">Google Meu Negócio</a></li>
+										</ul>
+									</div>
+
+									<div class="col-lg-4 col-8 bottommargin-sm widget_links">
+										<ul>
+											<li><a href="{% url 'otimizacao_seo' %}">Otimização de SEO</a></li>
+											<li><a href="{% url 'identidade_visual' %}">Identidade Visual & Logomarca</a></li>
+										</ul>
+									</div>
+
+									<div class="col-lg-4 col-8 bottommargin-sm widget_links">
+										<ul>
+											<li><a href="{% url 'desenvolvimento_web' %}">Criação de Website</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+
+							<div class="widget subscribe-widget clearfix">
+								<h5><strong>Inscreva-se</strong> em nossa newsletter &amp; fique por dentro de todas as novidades:</h5>
+								<div class="position-relative top-50 start-50 translate-middle position-relative" id="alerta-footer"></div>
+								<form id="form-newsletter" action="" method="post" class="mb-0">
+									{% csrf_token %}
+									<div class="input-group mx-auto">
+										<div class="input-group-text bg-transparent"><i class="icon-email2" id="rodinha"></i></div>
+										<input type="email" id="email-newsletter" name="email-newsletter" class="form-control required email" placeholder="Coloque seu Email">
+										<button class="btn btn-success button button-color nott ls0 m-0" type="submit" onclick="manda_email()">Inscrever</button>
+									</div>
+								</form>
+							</div>
+
+							<div class="widget">
+
+								<div class="row col-mb-30">
+									<div class="col-lg-6 col-md-12 col-6">
+										<a href="https://www.facebook.com/Simpli-Global-105298165539689" target="_blank" class="social-icon si-dark si-colored si-facebook mb-0" style="margin-right: 10px;">
+											<i class="icon-facebook"></i>
+											<i class="icon-facebook"></i>
+										</a>
+										<a href="https://www.facebook.com/Simpli-Global-105298165539689" target="_blank" class="text-dark"><small style="display: block; margin-top: 3px;"><strong>Curta</strong><br>no Facebook</small></a>
+									</div>
+									<div class="col-lg-6 col-md-12 col-6">
+										<a href="https://www.linkedin.com/company/simpliglobal" target="_blank" class="social-icon si-dark si-colored si-linkedin mb-0" style="margin-right: 10px;">
+											<i class="icon-linkedin"></i>
+											<i class="icon-linkedin"></i>
+										</a>
+										<a href="https://www.linkedin.com/company/simpliglobal" target="_blank" class="text-dark"><small style="display: block; margin-top: 3px;"><strong>Siga</strong><br>no Linkedin</small></a>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+				</div><!-- .footer-widgets-wrap end -->
+			</div>
+
+			<!-- Copyrights
+			============================================= -->
+			<div id="copyrights" style="background: url('{% static 'demos/seo/images/hero/footer.svg' %}') no-repeat top center; background-size: cover; padding-top: 70px;">
+				<div class="container clearfix">
+
+					<div class="row justify-content-between col-mb-30">
+						<div class="col-12 col-lg-auto text-center text-lg-start">
+							Copyrights &copy; 2022 All Rights Reserved.<br>
+							<div class="copyright-links"><a href="{% url 'termos_uso' %}">Termos de Uso</a> / <a href="{% url 'politica_privacidade' %}">Política de Privacidade</a></div>
+						</div>
+
+						<div class="col-12 col-lg-auto text-center text-lg-end">
+							<div class="copyrights-menu copyright-links clearfix">
+								<a href="{% url 'index' %}">Home</a>/<a href="{% url 'sobre' %}">Quem Somos</a>/<a href="{% url 'contato' %}">Contato</a>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div><!-- #copyrights end -->
+		</footer><!-- #footer end -->
+		<script type="text/javascript">
+			function manda_email() {
+				function validateEmail(email) {
+					var re = /\S+@\S+/;
+					return re.test(email);
+				}
+				var email = document.getElementById("email-newsletter").value;
+				if(validateEmail(email)) {
+					$.post(
+						'/email_newsletter/',{
+							reply: false,
+							csrfmiddlewaretoken: $('input[name="csrfmiddlewaretoken"]').val(),
+							email: $('input[name="email-newsletter"]').val()
+						},
+						function (data) {
+							var rodinha = document.getElementById("rodinha");
+							rodinha.classList.remove('icon-line-loader');
+							rodinha.classList.remove('icon-spin');
+							rodinha.classList.add('icon-email2');
+							var divMae = document.getElementById('alerta-footer')
+							var wrapper = document.createElement('div')
+							if (data == 'Cadastrado com sucesso!'){
+								document.getElementById("form-newsletter").reset();
+								wrapper.innerHTML = '<div class="alert alert-success alert-dismissible" role="alert">' + data + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+								divMae.append(wrapper)
+							} else {
+								wrapper.innerHTML = '<div class="alert alert-danger alert-dismissible" role="alert">' + data + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+								divMae.append(wrapper)
+							}
+						}
+					);
+				} else {
+					document.getElementById("email-newsletter").focus();
+				}
+			}
+		</script>
